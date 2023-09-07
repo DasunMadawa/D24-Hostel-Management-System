@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="890.0" prefWidth="1621.0" style="-fx-background-color: #DFE2EC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuFormController">
+   <children>
+      <Pane layoutX="23.0" layoutY="22.0" prefHeight="402.0" prefWidth="979.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 15;">
+         <children>
+            <Pane layoutX="56.0" layoutY="104.0" prefHeight="260.0" prefWidth="263.0" style="-fx-background-color: #FFEBED; -fx-background-radius: 20;">
+               <children>
+                  <Pane layoutX="18.0" layoutY="26.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FC6F92; -fx-background-radius: 100;">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="47.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-bed-100%20(3).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label fx:id="totalCapLbl" layoutX="26.0" layoutY="130.0" prefHeight="48.0" prefWidth="108.0" text="125">
+                     <font>
+                        <Font name="Arial Bold" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="26.0" layoutY="178.0" prefHeight="48.0" prefWidth="166.0" text="Total Capacity" textFill="#51687b">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="358.0" layoutY="104.0" prefHeight="260.0" prefWidth="263.0" style="-fx-background-color: #FFF7E7; -fx-background-radius: 20;">
+               <children>
+                  <Pane layoutX="18.0" layoutY="26.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #FEAA90; -fx-background-radius: 100;">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="47.0" layoutX="12.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-bed-100%20(4).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label fx:id="activeLbl" layoutX="18.0" layoutY="130.0" prefHeight="48.0" prefWidth="108.0" text="75">
+                     <font>
+                        <Font name="Arial Bold" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="18.0" layoutY="178.0" prefHeight="48.0" prefWidth="193.0" text="Active Recidents" textFill="#51687b">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutX="662.0" layoutY="104.0" prefHeight="260.0" prefWidth="263.0" style="-fx-background-color: #E6FDEE; -fx-background-radius: 20;">
+               <children>
+                  <Pane layoutX="18.0" layoutY="26.0" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: #4FE46B; -fx-background-radius: 100;">
+                     <children>
+                        <ImageView fitHeight="53.0" fitWidth="47.0" layoutX="12.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@img/icons8-bed-100%20(6).png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label fx:id="filledLbl" layoutX="18.0" layoutY="130.0" prefHeight="48.0" prefWidth="108.0" text="50">
+                     <font>
+                        <Font name="Arial Bold" size="42.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="18.0" layoutY="178.0" prefHeight="48.0" prefWidth="193.0" text="Total Filled" textFill="#51687b">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="56.0" layoutY="14.0" prefHeight="48.0" prefWidth="277.0" text="Occupancy status" textFill="#51687b">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="59.0" layoutY="42.0" prefHeight="48.0" prefWidth="166.0" text="Summary" textFill="#51687b">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="1032.0" layoutY="22.0" prefHeight="402.0" prefWidth="565.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 15;">
+         <children>
+            <JFXSpinner fx:id="keyMoneySpinner" layoutX="157.0" layoutY="103.0" prefHeight="252.0" prefWidth="252.0" progress="0.8" />
+            <Label layoutX="64.0" layoutY="14.0" prefHeight="48.0" prefWidth="177.0" text="Key Money" textFill="#51687b">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="42.0" prefHeight="48.0" prefWidth="166.0" text="Recieved" textFill="#51687b">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="23.0" layoutY="454.0" prefHeight="414.0" prefWidth="1572.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 15;">
+         <children>
+            <Label layoutX="64.0" layoutY="14.0" prefHeight="48.0" prefWidth="218.0" text="Reservations" textFill="#51687b">
+               <font>
+                  <Font name="Arial Bold" size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="42.0" prefHeight="48.0" prefWidth="166.0" text="Summary" textFill="#51687b">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Label>
+            <LineChart fx:id="lineChart" layoutX="16.0" layoutY="75.0" prefHeight="325.0" prefWidth="1540.0">
+              <xAxis>
+                <CategoryAxis fx:id="monthAxixX" endMargin="12.0" label="Month" prefWidth="1464.0" side="BOTTOM" startMargin="1.0" tickLabelGap="1.0" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="reservationAxixY" label="Reservations" minorTickCount="0" side="LEFT" tickLabelGap="1.0" upperBound="125.0" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

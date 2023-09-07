@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="890.0" prefWidth="1621.0" style="-fx-background-color: #DFE2EC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegistrationFormController">
+   <children>
+      <Pane layoutX="27.0" layoutY="25.0" prefHeight="841.0" prefWidth="1569.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 15;">
+         <children>
+            <JFXTextField fx:id="sidTxt" labelFloat="true" layoutX="51.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="51.0" layoutY="252.0" prefHeight="53.0" prefWidth="271.0" text="Student Id">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="51.0" layoutY="342.0" prefHeight="53.0" prefWidth="271.0" text="Name">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="nameTxt" labelFloat="true" layoutX="51.0" layoutY="395.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="51.0" layoutY="432.0" prefHeight="53.0" prefWidth="271.0" text="Address">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="addressTxt" labelFloat="true" layoutX="51.0" layoutY="485.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="51.0" layoutY="522.0" prefHeight="53.0" prefWidth="271.0" text="Contact">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="contactTxt" labelFloat="true" layoutX="51.0" layoutY="575.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="dobTxt" labelFloat="true" layoutX="350.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="350.0" layoutY="252.0" prefHeight="53.0" prefWidth="271.0" text="Date Of Birth">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="350.0" layoutY="342.0" prefHeight="53.0" prefWidth="271.0" text="Gender">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="genderTxt" labelFloat="true" layoutX="350.0" layoutY="395.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="968.0" layoutY="252.0" prefHeight="53.0" prefWidth="271.0" text="Res-Date">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="resDateTxt" labelFloat="true" layoutX="968.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="statusTxt" labelFloat="true" layoutX="350.0" layoutY="493.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <Label layoutX="350.0" layoutY="440.0" prefHeight="53.0" prefWidth="271.0" text="Status">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="658.0" layoutY="252.0" prefHeight="53.0" prefWidth="271.0" text="Room Type Id">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="968.0" layoutY="342.0" prefHeight="53.0" prefWidth="271.0" text="Room Type">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <JFXTextField fx:id="roomTypeTxt" labelFloat="true" layoutX="968.0" layoutY="395.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="resIdTxt" labelFloat="true" layoutX="639.0" layoutY="110.0" prefHeight="53.0" prefWidth="271.0" promptText="Res-Id" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="registerBtn" layoutX="1331.0" layoutY="297.0" onAction="#registerBtnOnAction" prefHeight="53.0" prefWidth="187.0" style="-fx-background-color: #1982c4; -fx-background-radius: 50;" text="Register" textFill="#fafafa">
+               <font>
+                  <Font name="SansSerif Bold" size="24.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXComboBox fx:id="roomIdComboBox" layoutX="658.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" promptText="Select Room Type Id" stylesheets="@style/style.css" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
