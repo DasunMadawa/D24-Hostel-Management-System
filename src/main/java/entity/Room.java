@@ -13,8 +13,8 @@ public class Room {
     private String keyMoney;
     private int qty;
 
-    @OneToMany(mappedBy = "room" ,cascade = CascadeType.ALL , fetch = FetchType.EAGER)
-    private List<Reservation> reservations = new ArrayList<>();
+    @OneToMany(mappedBy = "room" ,cascade = CascadeType.ALL ,orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Reservation> reservations;
 
     public Room() {
     }

@@ -2,9 +2,11 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -68,22 +70,12 @@
                   <Font name="Arial" size="24.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="genderTxt" labelFloat="true" layoutX="350.0" layoutY="395.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </JFXTextField>
             <Label layoutX="968.0" layoutY="252.0" prefHeight="53.0" prefWidth="271.0" text="Res-Date">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
             </Label>
             <JFXTextField fx:id="resDateTxt" labelFloat="true" layoutX="968.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="statusTxt" labelFloat="true" layoutX="350.0" layoutY="493.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -121,7 +113,20 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXComboBox fx:id="roomIdComboBox" layoutX="658.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" promptText="Select Room Type Id" stylesheets="@style/style.css" />
+            <JFXComboBox fx:id="roomIdComboBox" layoutX="658.0" layoutY="305.0" onAction="#roomIdComboBoxOnACtion" prefHeight="37.0" prefWidth="271.0" promptText="Select Room Type Id" stylesheets="@style/style.css" />
+            <JFXRadioButton fx:id="payNowRBtn" layoutX="352.0" layoutY="495.0" text="PAID">
+               <toggleGroup>
+                  <ToggleGroup fx:id="status" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="payLaterRBtn" layoutX="448.0" layoutY="495.0" text="NOT PAID" toggleGroup="$status" />
+            <JFXRadioButton layoutX="352.0" layoutY="405.0" text="MALE">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton layoutX="445.0" layoutY="405.0" text="FEMALE" toggleGroup="$gender" />
+            <JFXRadioButton layoutX="544.0" layoutY="405.0" text="OTHER" toggleGroup="$gender" />
          </children>
       </Pane>
    </children>

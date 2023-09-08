@@ -16,33 +16,22 @@
          <children>
             <TableView fx:id="table" layoutX="361.0" layoutY="509.0" prefHeight="307.0" prefWidth="847.0" style="-fx-background-radius: 10;" stylesheets="@style/style.css">
                <columns>
-                  <TableColumn fx:id="studentIdCol" prefWidth="188.0" text="Student Id" />
-                  <TableColumn fx:id="studentNameCol" prefWidth="212.0" text="Student Name" />
-                  <TableColumn fx:id="keyMoneyCol" prefWidth="261.0" text="Key Money" />
-                  <TableColumn fx:id="statusCol" prefWidth="185.0" text="Status" />
+                  <TableColumn fx:id="studentIdCol" prefWidth="215.0" text="Student Id" />
+                  <TableColumn fx:id="studentNameCol" prefWidth="399.0" text="Student Name" />
+                  <TableColumn fx:id="statusCol" prefWidth="232.0" text="Status" />
                </columns>
             </TableView>
-            <JFXTextField fx:id="nameTxt" labelFloat="true" layoutX="338.0" layoutY="253.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+            <JFXTextField fx:id="nameTxt" labelFloat="true" layoutX="458.0" layoutY="253.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </JFXTextField>
-            <Label layoutX="338.0" layoutY="200.0" prefHeight="53.0" prefWidth="271.0" text="Student Name">
+            <Label layoutX="458.0" layoutY="200.0" prefHeight="53.0" prefWidth="271.0" text="Student Name">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="valueTxt" labelFloat="true" layoutX="646.0" layoutY="253.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </JFXTextField>
-            <Label layoutX="646.0" layoutY="200.0" prefHeight="53.0" prefWidth="271.0" text="Key Money">
-               <font>
-                  <Font name="Arial" size="24.0" />
-               </font>
-            </Label>
-            <JFXTextField fx:id="searchTxt" labelFloat="true" layoutX="552.0" layoutY="38.0" prefHeight="53.0" prefWidth="271.0" promptText="Search Student" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+            <JFXTextField fx:id="searchTxt" labelFloat="true" layoutX="552.0" layoutY="38.0" onAction="#searchTxtOnAction" prefHeight="53.0" prefWidth="271.0" promptText="Search Student" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="22.0" />
                </font>
@@ -55,12 +44,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
-            <JFXTextField fx:id="statusTxt" labelFloat="true" layoutX="960.0" layoutY="253.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+            <JFXTextField fx:id="statusTxt" labelFloat="true" layoutX="785.0" layoutY="253.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
             </JFXTextField>
-            <Label layoutX="960.0" layoutY="200.0" prefHeight="53.0" prefWidth="271.0" text="Status">
+            <Label layoutX="785.0" layoutY="200.0" prefHeight="53.0" prefWidth="271.0" text="Status">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>

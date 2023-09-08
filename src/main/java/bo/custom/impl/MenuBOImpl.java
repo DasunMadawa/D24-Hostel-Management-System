@@ -55,7 +55,7 @@ public class MenuBOImpl implements MenuBO {
         List<Reservation> reservations = reservationDAO.getAll();
         int payedCount = 0;
         for (Reservation reservation : reservations) {
-            payedCount += reservation.getStatus().equals("PAYED") ? 1 : 0;
+            payedCount += reservation.getStatus().equals("PAID") ? 1 : 0;
         }
 
         double all = reservations.size();

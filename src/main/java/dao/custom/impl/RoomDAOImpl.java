@@ -13,58 +13,99 @@ import java.util.List;
 public class RoomDAOImpl implements RoomDAO {
     @Override
     public boolean add(Room room) throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
 
-        session.persist(room);
-        transaction.commit();
-        session.close();
-        return false;
+            session.persist(room);
+            transaction.commit();
+            return false;
+        }catch (Exception e){
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 
     @Override
     public Room search(String idOrName) throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Room room = session.get(Room.class, idOrName);
-        session.close();
-        return room;
+        Session session = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            Room room = session.get(Room.class, idOrName);
+            return room;
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 
     @Override
     public boolean update(Room room) throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
 
-        session.update(room);
-        transaction.commit();
-        session.close();
+            session.update(room);
+            transaction.commit();
 
-        return true;
+            return true;
+        }catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+
+        }
+
     }
 
     @Override
     public boolean delete(String id) throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
 
-        Room room = session.get(Room.class, id);
-        session.delete(room);
-        transaction.commit();
-        session.close();
-        return true;
+            Room room = session.get(Room.class, id);
+            session.delete(room);
+            transaction.commit();
+            return true;
+        }catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 
     @Override
     public List<Room> getAll() throws Exception {
-        Session session = FactoryConfiguration.getInstance().getSession();
-        NativeQuery query = session.createNativeQuery("SELECT * FROM room");
-        query.addEntity(Room.class);
-        List<Room> list = query.list();
-        session.close();
-        return list;
+        Session session = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            NativeQuery query = session.createNativeQuery("SELECT * FROM room");
+            query.addEntity(Room.class);
+            return query.list();
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 

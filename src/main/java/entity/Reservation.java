@@ -2,6 +2,7 @@ package entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 import java.time.LocalDate;
@@ -14,12 +15,15 @@ public class Reservation {
     private String status;
 
     @ManyToOne
+//    @JoinColumn(nullable = false)
     private Student student;
 
     @ManyToOne
+    @JoinColumn(nullable = false)
     private Room room;
 
     public Reservation() {
+
     }
 
     public Reservation(String resId, LocalDate date, String status) {

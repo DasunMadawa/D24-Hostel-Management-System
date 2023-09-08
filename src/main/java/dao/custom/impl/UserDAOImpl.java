@@ -15,34 +15,58 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public boolean add(User user) throws Exception{
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
 
-        session.persist(user);
-        transaction.commit();
-        session.close();
-        return true;
+            session.persist(user);
+            transaction.commit();
+            return true;
+        }catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 
     @Override
     public User search(String idOrName) throws Exception{
-        Session session = FactoryConfiguration.getInstance().getSession();
-        User user = session.get(User.class, idOrName);
-        session.close();
-        return user;
+        Session session = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            User user = session.get(User.class, idOrName);
+            return user;
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 
     @Override
     public boolean update(User user) throws Exception{
-        Session session = FactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+        Session session = null;
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
 
-        session.update(user);
-        transaction.commit();
-        session.close();
-        return true;
+            session.update(user);
+            transaction.commit();
+            return true;
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            session.close();
+
+        }
 
     }
 

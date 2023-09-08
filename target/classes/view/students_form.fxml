@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -16,14 +18,17 @@
          <children>
             <TableView fx:id="table" layoutX="22.0" layoutY="511.0" prefHeight="307.0" prefWidth="1529.0" style="-fx-background-radius: 10;" stylesheets="@style/style.css">
               <columns>
-                <TableColumn fx:id="sidCol" prefWidth="133.0" text="Student Id" />
-                <TableColumn fx:id="nameCol" prefWidth="382.0" text="Name" />
-                  <TableColumn fx:id="addressCol" prefWidth="289.0" text="Address" />
-                  <TableColumn fx:id="contactCol" prefWidth="148.0" text="Contact" />
-                  <TableColumn fx:id="genderCol" prefWidth="141.0" text="Gender" />
-                  <TableColumn fx:id="reservationCol" prefWidth="147.0" text="Reservation Id" />
-                  <TableColumn fx:id="roomTypeIdCol" prefWidth="137.0" text="Room Type Id" />
-                  <TableColumn fx:id="roomTypeCol" prefWidth="151.0" text="Room Type" />
+                <TableColumn fx:id="sidCol" prefWidth="85.0" text="Student Id" />
+                <TableColumn fx:id="nameCol" prefWidth="251.99996948242188" text="Name" />
+                  <TableColumn fx:id="addressCol" prefWidth="255.0" text="Address" />
+                  <TableColumn fx:id="contactCol" prefWidth="129.0" text="Contact" />
+                  <TableColumn fx:id="dobCol" prefWidth="133.0" text="Date Of Birth" />
+                  <TableColumn fx:id="genderCol" minWidth="0.0" prefWidth="87.0" text="Gender" />
+                  <TableColumn fx:id="resIdCol" prefWidth="94.0" text="Reservation Id" />
+                  <TableColumn fx:id="roomTypeIdCol" prefWidth="96.0" text="Room Type Id" />
+                  <TableColumn fx:id="roomTypeCol" prefWidth="112.0" text="Room Type" />
+                  <TableColumn fx:id="regDateCol" prefWidth="163.0" text="Reg Date" />
+                  <TableColumn fx:id="statusCol" prefWidth="122.0" text="status" />
               </columns>
             </TableView>
             <JFXTextField fx:id="sidTxt" labelFloat="true" layoutX="62.0" layoutY="173.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
@@ -81,11 +86,6 @@
                   <Font name="Arial" size="24.0" />
                </font>
             </Label>
-            <JFXTextField fx:id="genderTxt" labelFloat="true" layoutX="361.0" layoutY="263.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </JFXTextField>
             <Label layoutX="981.0" layoutY="120.0" prefHeight="53.0" prefWidth="271.0" text="Res-Id">
                <font>
                   <Font name="Arial" size="24.0" />
@@ -102,11 +102,6 @@
                </font>
             </Label>
             <JFXTextField fx:id="resDateTxt" labelFloat="true" layoutX="981.0" layoutY="263.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
-               <font>
-                  <Font name="Arial" size="18.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="statusTxt" labelFloat="true" layoutX="669.0" layoutY="173.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -136,12 +131,12 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="searchTxt" labelFloat="true" layoutX="552.0" layoutY="38.0" prefHeight="53.0" prefWidth="271.0" promptText="Search Student" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+            <JFXTextField fx:id="searchTxt" labelFloat="true" layoutX="552.0" layoutY="38.0" onAction="#searchTxtOnAction" prefHeight="53.0" prefWidth="271.0" promptText="Search Student" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="22.0" />
                </font>
             </JFXTextField>
-            <JFXButton fx:id="serachBtn" layoutX="835.0" layoutY="38.0" onAction="#serachBtnOnAction" prefHeight="53.0" prefWidth="187.0" style="-fx-background-color: #00C37A; -fx-background-radius: 50;" text="Search" textFill="#fafafa">
+            <JFXButton fx:id="searchBtn" layoutX="835.0" layoutY="38.0" onAction="#searchBtnOnAction" prefHeight="53.0" prefWidth="187.0" style="-fx-background-color: #00C37A; -fx-background-radius: 50;" text="Search" textFill="#fafafa">
                <font>
                   <Font name="SansSerif Bold" size="24.0" />
                </font>
@@ -165,6 +160,19 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </JFXButton>
+            <JFXRadioButton fx:id="maleRBtn" layoutX="361.0" layoutY="273.0" text="MALE">
+               <toggleGroup>
+                  <ToggleGroup fx:id="gender" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="femaleRBtn" layoutX="457.0" layoutY="273.0" text="FEMALE" toggleGroup="$gender" />
+            <JFXRadioButton fx:id="otherRBtn" layoutX="559.0" layoutY="273.0" text="OTHER" toggleGroup="$gender" />
+            <JFXRadioButton fx:id="payNowRBtn" layoutX="669.0" layoutY="183.0" text="PAID">
+               <toggleGroup>
+                  <ToggleGroup fx:id="status" />
+               </toggleGroup>
+            </JFXRadioButton>
+            <JFXRadioButton fx:id="payLaterRBtn" layoutX="765.0" layoutY="183.0" text="NOT PAID" toggleGroup="$status" />
          </children></Pane>
    </children>
 </AnchorPane>
