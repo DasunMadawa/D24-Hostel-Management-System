@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="477.0" prefWidth="484.0" style="-fx-background-color: #DFE2EC;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserFormController">
+   <children>
+      <Pane layoutX="45.0" layoutY="55.0" prefHeight="368.0" prefWidth="394.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 30;">
+         <children>
+            <ImageView fitHeight="55.0" fitWidth="69.0" layoutX="120.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/icons8-hostel-100.png" />
+               </image>
+            </ImageView>
+            <Text fill="#2f44b0" layoutX="181.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="D24" textAlignment="CENTER" wrappingWidth="93.99999278783798">
+               <font>
+                  <Font name="SansSerif Bold" size="48.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <JFXButton fx:id="changeBtn" layoutX="150.0" layoutY="326.0" onAction="#changeBtnOnAction" prefHeight="53.0" prefWidth="187.0" style="-fx-background-color: #00C37A; -fx-background-radius: 50;" text="CHANGE" textFill="#fafafa">
+         <font>
+            <Font name="SansSerif Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="116.0" layoutY="135.0" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 50;" />
+      <JFXTextField fx:id="userNameTxt" layoutX="164.0" layoutY="135.0" onAction="#userNameTxtOnAction" prefHeight="38.0" prefWidth="187.0" promptText="UserName" style="-fx-background-color: #FAFAFA;" styleClass="txt" stylesheets="@style/style.css" />
+      <ImageView fitHeight="38.0" fitWidth="31.0" layoutX="126.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8-user-90%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="116.0" layoutY="188.0" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 50;" />
+      <JFXTextField fx:id="passwordText" layoutX="164.0" layoutY="188.0" onAction="#passwordTextOnAction" prefHeight="38.0" prefWidth="187.0" promptText="Password" style="-fx-background-color: #FAFAFA;" styleClass="txt" stylesheets="@style/style.css" />
+      <ImageView fitHeight="38.0" fitWidth="31.0" layoutX="126.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8-key-96%20(1).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="118.0" layoutY="246.0" prefHeight="38.0" prefWidth="251.0" style="-fx-background-color: #FAFAFA; -fx-background-radius: 50;" />
+      <JFXTextField fx:id="confirmText" layoutX="166.0" layoutY="246.0" onAction="#confirmTextOnAction" prefHeight="38.0" prefWidth="187.0" promptText="Confirm" style="-fx-background-color: #FAFAFA;" styleClass="txt" stylesheets="@style/style.css" />
+      <ImageView fitHeight="38.0" fitWidth="31.0" layoutX="126.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/icons8-key-96%20(1).png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

@@ -70,5 +70,12 @@ public class ReservationBOImpl implements ReservationBO {
         return roomDTOList;
     }
 
+    @Override
+    public RoomDTO getRoom(String id) throws Exception {
+        Room room = roomDAO.search(id);
+        return new RoomDTO(room.getRoomTypeId() , room.getRoomType() , room.getKeyMoney() , room.getQty());
+
+    }
+
 
 }

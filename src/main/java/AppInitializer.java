@@ -19,13 +19,11 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("view/dashboard_form.fxml"))));
+        primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("view/login_form.fxml"))));
         primaryStage.setResizable(false);
         primaryStage.setTitle("D24");
         primaryStage.getIcons().add(new Image("view/img/icons8-hostel-100.png"));
         primaryStage.show();
-
-        FactoryConfiguration.getInstance().getSession();
 
         new Thread(() -> {
             Session session = FactoryConfiguration.getInstance().getSession();

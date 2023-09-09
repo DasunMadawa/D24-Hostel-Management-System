@@ -10,5 +10,6 @@ public interface ReservationBO extends SuperBO {
     public boolean registration(ReservationDTO reservationDTO) throws Exception;
     public String genarateResId() throws Exception;
     public List<RoomDTO> getAllRooms() throws Exception;
+    public RoomDTO getRoom(String id) throws Exception;
 
 }

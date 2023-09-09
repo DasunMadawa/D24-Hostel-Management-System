@@ -14,6 +14,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
+import util.Validations;
 
 import java.util.List;
 
@@ -41,7 +43,7 @@ public class KeyMoneyFormController {
     private JFXTextField searchTxt;
 
     @FXML
-    private JFXButton serachBtn;
+    private JFXButton searchBtn;
 
     @FXML
     private JFXTextField statusTxt;
@@ -52,6 +54,8 @@ public class KeyMoneyFormController {
     public void initialize(){
         setCellValueFactory();
         setValuesToTable();
+
+        Validations.setFocus(searchTxt , Validations.studentPattern);
 
     }
 
@@ -77,7 +81,11 @@ public class KeyMoneyFormController {
     }
 
     @FXML
-    void serachBtnOnAction(ActionEvent event) {
+    void searchBtnOnAction(ActionEvent event) {
+        if (searchTxt.getFocusColor().equals(Paint.valueOf("red")) || searchTxt.getText().equals("")){
+            new Alert(Alert.AlertType.ERROR , "Enter valid Id like S001");
+            return;
+        }
         try {
             Object[] objects = keyMoneyBO.searchStudent(searchTxt.getText());
 
@@ -91,7 +99,7 @@ public class KeyMoneyFormController {
 
     @FXML
     public void searchTxtOnAction(ActionEvent actionEvent) {
-        serachBtnOnAction(actionEvent);
+        searchBtnOnAction(actionEvent);
     }
 
 }

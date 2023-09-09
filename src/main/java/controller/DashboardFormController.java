@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -55,8 +56,11 @@ public class DashboardFormController {
     @FXML
     private Text userNameLbl;
 
+    public static String userName;
+
     @FXML
     public void initialize(){
+        userNameLbl.setText(userName);
         try {
             dashboardAnc.getChildren().clear();
             dashboardAnc.getChildren().add(FXMLLoader.load(getClass().getResource("/view/menu_form.fxml")));
@@ -66,6 +70,7 @@ public class DashboardFormController {
 
     }
 
+    @FXML
     public void mainMenuBtnOnAction(ActionEvent actionEvent) {
         try {
             dashboardAnc.getChildren().clear();
@@ -75,6 +80,7 @@ public class DashboardFormController {
         }
     }
 
+    @FXML
     public void studentsBtnOnAction(ActionEvent actionEvent) {
         try {
             dashboardAnc.getChildren().clear();
@@ -84,6 +90,7 @@ public class DashboardFormController {
         }
     }
 
+    @FXML
     public void roomsBtnOnAction(ActionEvent actionEvent) {
         try {
             dashboardAnc.getChildren().clear();
@@ -93,6 +100,7 @@ public class DashboardFormController {
         }
     }
 
+    @FXML
     public void keyMoneyBtnOnAction(ActionEvent actionEvent) {
         try {
             dashboardAnc.getChildren().clear();
@@ -101,7 +109,7 @@ public class DashboardFormController {
 //            new Alert(Alert.AlertType.ERROR , "UI Loading Bug" , ButtonType.OK).show();
         }
     }
-
+    @FXML
     public void registerBtnOnAction(ActionEvent actionEvent) {
         try {
             dashboardAnc.getChildren().clear();
@@ -109,6 +117,17 @@ public class DashboardFormController {
         } catch (IOException e) {
 //            new Alert(Alert.AlertType.ERROR , "UI Loading Bug" , ButtonType.OK).show();
         }
+    }
+    @FXML
+    public void userChangeOnMouseClicked(MouseEvent mouseEvent) {
+        Stage stage = new Stage();
+        try {
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/user_form.fxml"))));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

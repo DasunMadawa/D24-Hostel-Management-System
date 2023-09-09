@@ -17,6 +17,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Paint;
+import util.Validations;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -130,7 +132,27 @@ public class StudentsFormController {
         setCellValueFactory();
         loadStudentTableValues();
         setBtnsVisible(false);
+        setEditable();
+        setTextFieldValidations();
 
+    }
+
+    private void setTextFieldValidations() {
+        Validations.setFocus(nameTxt, Validations.namePattern);
+        Validations.setFocus(addressTxt, Validations.namePattern);
+        Validations.setFocus(contactTxt, Validations.mobilePattern);
+        Validations.setFocus(dobTxt, Validations.datePattern);
+
+        Validations.setFocus(searchTxt, Validations.studentPattern);
+
+    }
+
+    private void setEditable() {
+        sidTxt.setEditable(false);
+        roomIdTxt.setEditable(false);
+        roomTypeTxt.setEditable(false);
+        resIdTxt.setEditable(false);
+        resDateTxt.setEditable(false);
     }
 
 
@@ -179,6 +201,12 @@ public class StudentsFormController {
     @FXML
     void searchBtnOnAction(ActionEvent event) {
         try {
+            if (searchTxt.getFocusColor().equals(Paint.valueOf("red")) || searchTxt.getText().equals("")){
+                new Alert(Alert.AlertType.ERROR , "Enter valid Student Id like 'S001'" , ButtonType.OK);
+                return;
+
+            }
+
             selectedReservationDTO = studentBO.searchStudent(searchTxt.getText());
             selectedStudent = selectedReservationDTO.getStudent();
             selectedRoom = selectedReservationDTO.getRoom();
@@ -218,7 +246,7 @@ public class StudentsFormController {
             setBtnsVisible(true);
 
         } catch (Exception e) {
-            new Alert(Alert.AlertType.ERROR, "Data Missing On This Id !").show();
+            new Alert(Alert.AlertType.ERROR, "Data Missing On This Id !" , ButtonType.OK).show();
         }
 
     }
@@ -226,17 +254,29 @@ public class StudentsFormController {
     @FXML
     void updateBtnOnAction(ActionEvent event) {
         try {
+            RadioButton genderRBtn = (RadioButton) gender.getSelectedToggle();
+            RadioButton statusRBtn = (RadioButton) status.getSelectedToggle();
+
+            if ((nameTxt.getFocusColor().equals(Paint.valueOf("red")) || nameTxt.getText().equals("")) ||
+            (addressTxt.getFocusColor().equals(Paint.valueOf("red")) || addressTxt.getText().equals("")) ||
+            (contactTxt.getFocusColor().equals(Paint.valueOf("red")) || contactTxt.getText().equals("")) ||
+            (dobTxt.getFocusColor().equals(Paint.valueOf("red")) || dobTxt.getText().equals("")) ||
+            genderRBtn==null || statusRBtn==null
+            ){
+                new Alert(Alert.AlertType.ERROR , "Enter valid Data").show();
+                return;
+            }
+
+
             ReservationDTO reservationDTO = new ReservationDTO();
             StudentDTO studentDTO = new StudentDTO();
 
-            RadioButton genderRBtn = (RadioButton) gender.getSelectedToggle();
-            RadioButton statusRBtn = (RadioButton) status.getSelectedToggle();
 
             studentDTO.setStudentId(sidTxt.getText());
             studentDTO.setName(nameTxt.getText());
             studentDTO.setAddress(addressTxt.getText());
             studentDTO.setContactNo(contactTxt.getText());
-            studentDTO.setDob(LocalDate.parse(dobTxt.getText()));
+            studentDTO.setDob(LocalDate.parse(dateFormateChanger(dobTxt.getText())));
             studentDTO.setGender(genderRBtn.getText());
 
             reservationDTO.setResId(selectedReservationDTO.getResId());
@@ -292,6 +332,15 @@ public class StudentsFormController {
         }
 
     }
+    private String dateFormateChanger(String dateNotFormated) {
+        String date = dateNotFormated;
+
+        String[] dateAr = date.split("-");
+
+        return dateAr[2] + "-" + dateAr[1] + "-" + dateAr[0];
+
+    }
+
 
 
 }

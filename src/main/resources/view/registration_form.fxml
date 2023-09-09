@@ -55,7 +55,7 @@
                   <Font name="Arial" size="18.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="dobTxt" labelFloat="true" layoutX="350.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
+            <JFXTextField fx:id="dobTxt" labelFloat="true" layoutX="350.0" layoutY="305.0" prefHeight="37.0" prefWidth="271.0" promptText="DD-MM-YYYY" style="-fx-border-color: #777777; -fx-border-radius: 5;" stylesheets="@style/style.css">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>

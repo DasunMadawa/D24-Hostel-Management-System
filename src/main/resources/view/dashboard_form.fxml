@@ -106,7 +106,7 @@
             <Font name="SansSerif Bold" size="36.0" />
          </font>
       </Text>
-      <ImageView id="menuIcon" fitHeight="60.0" fitWidth="61.0" layoutX="1643.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="menuIcon" fitHeight="60.0" fitWidth="61.0" layoutX="1643.0" layoutY="31.0" onMouseClicked="#userChangeOnMouseClicked" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/icons8-admin-64%20(2).png" />
          </image>
