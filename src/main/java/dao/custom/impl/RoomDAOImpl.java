@@ -109,4 +109,23 @@ public class RoomDAOImpl implements RoomDAO {
 
     }
 
+    @Override
+    public boolean update(Room room, Session session) throws Exception {
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            session.update(room);
+            transaction.commit();
+
+            return true;
+        }catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+
+        }
+    }
 }

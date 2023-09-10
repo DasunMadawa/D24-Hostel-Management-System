@@ -11,6 +11,8 @@ import dto.StudentDTO;
 import entity.Reservation;
 import entity.Room;
 import entity.Student;
+import org.hibernate.Session;
+import util.FactoryConfiguration;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,28 +30,46 @@ public class ReservationBOImpl implements ReservationBO {
 //        Room room = roomDAO.search(roomDTO.getRoomTypeId());
 //        room.setQty(room.getQty()-1);
 //
+//        List<Reservation> reservationList = new ArrayList<>();
+//        Student student1 = studentDAO.search(reservationDTO.getStudent().getStudentId());
+//        reservationList.add(new Reservation(reservationDTO.getResId() , reservationDTO.getDate() , reservationDTO.getStatus() , student1 , room ));
+//
 //        Student student = new Student(studentDTO.getStudentId() , studentDTO.getName() , studentDTO.getAddress() , studentDTO.getContactNo() , studentDTO.getDob() , studentDTO.getGender() , reservationList);
 //        Reservation reservation = new Reservation(reservationDTO.getResId() , reservationDTO.getDate() , reservationDTO.getStatus() , student , room);
+//
+//        reservationDAO.add(reservation);
+
         StudentDTO studentDTO = reservationDTO.getStudent();
         Student studentEntity = new Student(studentDTO.getStudentId(), studentDTO.getName(), studentDTO.getAddress(), studentDTO.getContactNo(), studentDTO.getDob(), studentDTO.getGender());
-        boolean student = studentDAO.add(studentEntity);
 
-        if (student){
-            RoomDTO roomDTO = reservationDTO.getRoom();
+        Session session = FactoryConfiguration.getInstance().getSession();
 
-            Room room = roomDAO.search(roomDTO.getRoomTypeId());
-            room.setQty(room.getQty()-1);
+        studentDAO.add(studentEntity, session);
+        RoomDTO roomDTO = reservationDTO.getRoom();
 
-            boolean res = reservationDAO.add(new Reservation(reservationDTO.getResId(), reservationDTO.getDate(), reservationDTO.getStatus(), studentEntity, room));
+        Room room = roomDAO.search(roomDTO.getRoomTypeId());
+        room.setQty(room.getQty() - 1);
 
-            if (res) {
-                return roomDAO.update(room);
+        reservationDAO.add(new Reservation(reservationDTO.getResId(), reservationDTO.getDate(), reservationDTO.getStatus(), studentEntity, room) , session);
+        roomDAO.update(room , session);
+        return true;
 
-            }
-
-        }
-
-        return false;
+        //        if (student){
+//            RoomDTO roomDTO = reservationDTO.getRoom();
+//
+//            Room room = roomDAO.search(roomDTO.getRoomTypeId());
+//            room.setQty(room.getQty()-1);
+//
+//            boolean res = reservationDAO.add(new Reservation(reservationDTO.getResId(), reservationDTO.getDate(), reservationDTO.getStatus(), studentEntity, room));
+//
+//            if (res) {
+//                return roomDAO.update(room);
+//
+//            }
+//
+//        }
+//
+//        return false;
     }
 
     @Override
@@ -57,7 +77,12 @@ public class ReservationBOImpl implements ReservationBO {
         List<Reservation> all = reservationDAO.getAll();
         Reservation reservation = all.get(all.size() - 1);
         String lastID = reservation.getResId();
-        return String.format("RE%03d", Integer.parseInt(lastID.substring(2)) +1 );
+        String newId = String.format("RE%03d", Integer.parseInt(lastID.substring(2)) + 1);
+        if (newId.length() == 0) {
+            return "RE001";
+        }
+
+        return String.format("RE%03d", Integer.parseInt(lastID.substring(2)) + 1);
     }
 
     @Override
@@ -65,7 +90,7 @@ public class ReservationBOImpl implements ReservationBO {
         List<Room> all = roomDAO.getAll();
         List<RoomDTO> roomDTOList = new ArrayList<>();
         for (Room room : all) {
-            roomDTOList.add(new RoomDTO(room.getRoomTypeId() , room.getRoomType() , room.getKeyMoney() , room.getQty()));
+            roomDTOList.add(new RoomDTO(room.getRoomTypeId(), room.getRoomType(), room.getKeyMoney(), room.getQty()));
         }
         return roomDTOList;
     }
@@ -73,7 +98,7 @@ public class ReservationBOImpl implements ReservationBO {
     @Override
     public RoomDTO getRoom(String id) throws Exception {
         Room room = roomDAO.search(id);
-        return new RoomDTO(room.getRoomTypeId() , room.getRoomType() , room.getKeyMoney() , room.getQty());
+        return new RoomDTO(room.getRoomTypeId(), room.getRoomType(), room.getKeyMoney(), room.getQty());
 
     }
 

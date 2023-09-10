@@ -113,4 +113,24 @@ public class StudentDAOImpl implements StudentDAO {
 
     }
 
+    @Override
+    public boolean add(Student student, Session session) throws Exception {
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            session.persist(student);
+            transaction.commit();
+            return true;
+        }catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        }finally {
+            session.close();
+
+        }
+
+    }
+
 }

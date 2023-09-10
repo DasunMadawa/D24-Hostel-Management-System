@@ -124,4 +124,24 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     }
 
+    @Override
+    public boolean add(Reservation reservation, Session session) throws Exception {
+        Transaction transaction = null;
+        try {
+            session = FactoryConfiguration.getInstance().getSession();
+            transaction = session.beginTransaction();
+
+            session.persist(reservation);
+            transaction.commit();
+
+        } catch (Exception e) {
+            transaction.rollback();
+            throw e;
+        } finally {
+            session.close();
+        }
+        return true;
+
+    }
+
 }
