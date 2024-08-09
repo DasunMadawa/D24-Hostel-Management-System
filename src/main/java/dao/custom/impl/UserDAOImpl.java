@@ -62,6 +62,7 @@ public class UserDAOImpl implements UserDAO {
             transaction.commit();
             return true;
         }catch (Exception e) {
+            transaction.rollback();
             throw e;
         }finally {
             session.close();
